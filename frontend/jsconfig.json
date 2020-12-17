@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": false
+  },
+  "javascript.suggest.completeJSDocs": true,
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "demo-bookstore-lib",
+  "version": "1.0.0",
+  "description": "Local npm dependency for demo bookstore app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mean2me/demo-bookstore-js.git/lib"
+  },
+  "author": "Emanuele Colonnelli",
+  "license": "ISC"
+}

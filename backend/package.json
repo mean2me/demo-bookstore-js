@@ -1,0 +1,41 @@
+{
+  "name": "demo-bookstore-backend",
+  "version": "1.0.0",
+  "description": "Simple Node.js backend app",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node --inspect-brk app.js",
+    "test": "./node_modules/.bin/dotenv mocha ./tests",
+    "init-db": "./node_modules/.bin/sequelize init",
+    "init-model": "./node_modules/.bin/sequelize model:generate --force --name Books --attributes author:string,title:string,code:string,quantity:integer",
+    "db-migrate": "./node_modules/.bin/sequelize db:migrate up",
+    "db-seed-create": "./node_modules/.bin/sequelize seed:generate --name seed-books",
+    "db-seed-all": "node ./db-seeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mean2me/demo-bookstore-js.git/backend"
+  },
+  "author": "Emanuele Colonnelli",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.0",
+    "strip-bom-stream": "^4.0.0"
+  }
+}
