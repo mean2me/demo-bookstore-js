@@ -2,7 +2,10 @@ import { all, takeEvery, call, put } from 'redux-saga/effects'
 import { login, logout } from '../../api/auth.api'
 import { 
     listBooks, 
-    searchBooks, 
+    searchBooks,
+    getAuthors,
+    getBookByTitle,
+    getBooksByAuthor,
     getBookByCode,
     addBook, 
     updateBook, 
@@ -79,6 +82,40 @@ function* searchBooksCall(action) {
         }
     } catch (error) {
         yield put({ type: actions.SEARCH_BOOKS_FAILURE, payload: {
+            success: false,
+            reason: error
+        }})
+    }
+}
+
+function* getBooksByAuthorCall(action) {
+    try {
+        const { author } = action.payload
+        const resp = yield call(getBooksByAuthor, author)
+        if(resp.success) {
+            yield put({ type: actions.GET_BOOKS_BY_AUTHOR_SUCCESS, payload: resp })
+        } else {
+            yield put({ type: actions.GET_BOOKS_BY_AUTHOR_FAILURE, payload: resp })
+        }
+    } catch (error) {
+        yield put({ type: actions.GET_BOOKS_BY_AUTHOR_FAILURE, payload: {
+            success: false,
+            reason: error
+        }})
+    }
+}
+
+function* getAuthorsCall(action) {
+    try {
+        const { author } = action.payload
+        const resp = yield call(getAuthors, author)
+        if(resp.success) {
+            yield put({ type: actions.GET_AUTHORS_SUCCESS, payload: resp })
+        } else {
+            yield put({ type: actions.GET_AUTHORS_FAILURE, payload: resp })
+        }
+    } catch (error) {
+        yield put({ type: actions.GET_AUTHORS_FAILURE, payload: {
             success: false,
             reason: error
         }})
@@ -164,8 +201,12 @@ function* watchBookStore() {
         actions.ADD_BOOK,
         actions.UPDATE_BOOK,
         actions.SELL_BOOK,
+        actions.GET_AUTHORS,
     ], function* (action) {
         switch(action.type) {
+            case actions.GET_AUTHORS:
+                yield getAuthorsCall(action)
+                break
             case actions.LIST_BOOKS:
                 yield listBooksCall(action)
                 break
@@ -186,6 +227,9 @@ function* watchBookStore() {
                 break
             case actions.SELL_BOOK:
                 yield sellBookCall(action)
+                break
+            case actions.GET_BOOKS_BY_AUTHOR:
+                yield getBooksByAuthorCall(action)
                 break
         }
     })

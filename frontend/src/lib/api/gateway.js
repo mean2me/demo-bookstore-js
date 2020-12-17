@@ -51,7 +51,8 @@ export const jsonCall = async (url, method, data) => {
             break
     }
 
-    const raw = await fetch(url.startsWith('http') ? url : `${API_URL}${url}`, {
+    const callURL = url.startsWith('http') ? url : `${API_URL}${url}`
+    const raw = await fetch(callURL, {
         method,
         headers: {
             Accept: 'application/json, text/plain, */*',
@@ -61,7 +62,6 @@ export const jsonCall = async (url, method, data) => {
         credentials: 'include',
         ...(data ? { body: JSON.stringify(data) } : {}),
     })
-
     const resp = await raw.json()
     if (raw.status === 401) {
         return {

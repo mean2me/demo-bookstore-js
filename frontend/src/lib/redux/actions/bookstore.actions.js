@@ -80,3 +80,31 @@ export const updateBook = (book) => ({
 export const getIncome = () => ({
     type: keys.GET_INCOME,
 })
+
+export const getBookByTitle = (title) => ({
+    type: keys.GET_BOOK_BY_TITLE,
+    payload: {
+        title,
+    }
+})
+
+export const getBookByCode = (code) => ({
+    type: keys.GET_BOOK_BY_CODE,
+    payload: {
+        code,
+    }
+})
+
+export const getBooksByAuthor = (author) => ({
+    type: keys.GET_BOOKS_BY_AUTHOR,
+    payload: {
+        author,
+    }
+})
+
+export const getAuthors = (author) => ({
+    type: keys.GET_AUTHORS,
+    payload: {
+        author,
+    }
+})

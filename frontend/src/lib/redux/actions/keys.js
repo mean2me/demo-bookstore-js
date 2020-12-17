@@ -11,6 +11,10 @@ const labels = [
     'ADD_BOOK', 'ADD_BOOK_SUCCESS', 'ADD_BOOK_FAILURE',
     'UPDATE_BOOK', 'UPDATE_BOOK_SUCCESS', 'UPDATE_BOOK_FAILURE',
     'GET_INCOME', 'GET_INCOME_SUCCESS', 'GET_INCOME_FAILURE',
+    'GET_BOOK_BY_TITLE','GET_BOOK_BY_TITLE_SUCCESS', 'GET_BOOK_BY_TITLE_FAILURE',
+    'GET_BOOK_BY_CODE','GET_BOOK_BY_CODE_SUCCESS','GET_BOOK_BY_CODE_FAILURE',
+    'GET_BOOKS_BY_AUTHOR','GET_BOOKS_BY_AUTHOR_SUCCESS','GET_BOOKS_BY_AUTHOR_FAILURE',
+    'GET_AUTHORS','GET_AUTHORS_SUCCESS','GET_AUTHORS_FAILURE',
 ]
 const propertyModel = {
         configurable: false,
@@ -53,6 +57,24 @@ Object.defineProperties(keys, {
  * @property {string} GET_INCOME
  * @property {string} GET_INCOME_SUCCESS
  * @property {string} GET_INCOME_FAILURE
+ * 
+ * @property {string} GET_BOOK_BY_TITLE
+ * @property {string} GET_BOOK_BY_TITLE_SUCCESS
+ * @property {string} GET_BOOK_BY_TITLE_FAILURE
+ * 
+ * @property {string} GET_BOOK_BY_CODE
+ * @property {string} GET_BOOK_BY_CODE_SUCCESS
+ * @property {string} GET_BOOK_BY_CODE_FAILURE
+ * 
+ * @property {string} GET_BOOKS_BY_AUTHOR
+ * @property {string} GET_BOOKS_BY_AUTHOR_SUCCESS
+ * @property {string} GET_BOOKS_BY_AUTHOR_FAILURE
+ * 
+ * @property {string} GET_AUTHORS
+ * @property {string} GET_AUTHORS_SUCCESS
+ * @property {string} GET_AUTHORS_FAILURE
+ * 
+ * 
  * 
  * @return {ActionKey}
  */

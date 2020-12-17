@@ -3,8 +3,9 @@ const chai = require('chai'),
   assert = chai.assert
 
   const db = require('../models')
-  const controller = require('../controllers/bookstore.controller')
+  const controller = require('../lib/bookstore.lib')
   const TEST_TITLE = 'Spoon River Anthology'
+  const TEST_AUTHOR = 'Poe, Edgar Allan'
   const TEST_BOOK = {}
   Object.defineProperties(TEST_BOOK, {
     author: {
@@ -130,6 +131,21 @@ const chai = require('chai'),
             expect(sold).to.be.true
             expect(preSell.quantity).to.be.greaterThan(postSell.quantity)
             expect(preSell.quantity - postSell.quantity).to.equals(1)
+        })
+
+        it('Gets a list of authors', async () => {
+
+            const authors = await controller.getAuthors()
+
+            expect(authors).not.to.be.a('null')
+            expect(authors.length).to.be.greaterThan(0)
+            expect(authors[0]).to.be.string
+        })
+
+        it('Gets books by author', async () => {
+            const books = await controller.getBooksByAuthor(TEST_AUTHOR)
+            expect(books).not.to.be.a('null')
+            expect(books.length).to.be.greaterThan(0)
         })
 
     });

@@ -22,10 +22,10 @@ export default ({ children, ...props}) => {
     return (
         <div className={classes.root}>
         <CssBaseline />
-        <Container maxWidth="xl">
+        <Container>
             <SearchAppBar />
             <SignIn />
-            <Grid container xs={12}>
+            <Grid container>
                 <Books />
             </Grid>
         </Container>

@@ -27,12 +27,18 @@ const App = () => {
 
     const [uiState, setUIState] = useState({
         drawer: false,
-        toggleDrawer: async (status) => {
+        toggleDrawer: (status) => {
             setUIState(() => ({
                 ...uiState,
                 drawer: status ?? !uiState.drawer
             }))
-        }
+        },
+        closeDrawer: () => {
+            setUIState(() => ({
+                ...uiState,
+                drawer: false
+            }))
+        },
     })
 
     return (
