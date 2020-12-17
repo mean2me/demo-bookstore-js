@@ -76,9 +76,9 @@ function* searchBooksCall(action) {
         const { filter } = action.payload
         const resp = yield call(searchBooks, filter)
         if(resp.success) {
-            yield put({ type: actions.SEARCH_BOOK_SUCCESS, payload: resp })
+            yield put({ type: actions.SEARCH_BOOKS_SUCCESS, payload: resp })
         } else {
-            yield put({ type: actions.SEARCH_BOOK_FAILURE, payload: resp })
+            yield put({ type: actions.SEARCH_BOOKS_FAILURE, payload: resp })
         }
     } catch (error) {
         yield put({ type: actions.SEARCH_BOOKS_FAILURE, payload: {
@@ -195,13 +195,14 @@ function* sellBookCall(action) {
 function* watchBookStore() {
     yield takeEvery([
         actions.LIST_BOOKS,
-        actions.SEARCH_BOOK,
+        actions.SEARCH_BOOKS,
         actions.GET_BOOK,
         actions.GET_INCOME,
         actions.ADD_BOOK,
         actions.UPDATE_BOOK,
         actions.SELL_BOOK,
         actions.GET_AUTHORS,
+        actions.GET_BOOKS_BY_AUTHOR,
     ], function* (action) {
         switch(action.type) {
             case actions.GET_AUTHORS:
@@ -210,7 +211,7 @@ function* watchBookStore() {
             case actions.LIST_BOOKS:
                 yield listBooksCall(action)
                 break
-            case actions.SEARCH_BOOK:
+            case actions.SEARCH_BOOKS:
                 yield searchBooksCall(action)
                 break
             case actions.GET_BOOK:

@@ -18,7 +18,7 @@ export const listBooks = () => ({
  * @param {string} filter
  */
 export const searchBooks = (filter) => ({
-    type: keys.SEARCH_BOOK,
+    type: keys.SEARCH_BOOKS,
     payload: {
         filter
     }
@@ -107,4 +107,8 @@ export const getAuthors = (author) => ({
     payload: {
         author,
     }
+})
+
+export const resetAuthorFilter = () => ({
+    type: keys.RESET_AUTHOR_FILTER,
 })

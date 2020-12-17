@@ -39,6 +39,13 @@ const App = () => {
                 drawer: false
             }))
         },
+        page: 0,
+        setPage: (page) => {
+            setUIState(() => ({
+                ...uiState,
+                page: page,
+            }))
+        }
     })
 
     return (

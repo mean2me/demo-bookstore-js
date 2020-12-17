@@ -5,7 +5,7 @@ const labels = [
     'AUTH_LOGIN','AUTH_LOGIN_SUCCESS','AUTH_LOGIN_FAILURE',
     'AUTH_LOGOUT','AUTH_LOGOUT_SUCCESS','AUTH_LOGOUT_FAILURE',
     'LIST_BOOKS', 'LIST_BOOK_SUCCESS', 'LIST_BOOK_FAILURE',
-    'SEARCH_BOOK', 'SEARCH_BOOK_SUCCESS', 'SEARCH_BOOK_FAILURE',
+    'SEARCH_BOOKS', 'SEARCH_BOOKS_SUCCESS', 'SEARCH_BOOKS_FAILURE',
     'GET_BOOK', 'GET_BOOK_SUCCESS', 'GET_BOOK_FAILURE',
     'SELL_BOOK', 'SELL_BOOK_SUCCESS', 'SELL_BOOK_FAILURE',
     'ADD_BOOK', 'ADD_BOOK_SUCCESS', 'ADD_BOOK_FAILURE',
@@ -15,6 +15,7 @@ const labels = [
     'GET_BOOK_BY_CODE','GET_BOOK_BY_CODE_SUCCESS','GET_BOOK_BY_CODE_FAILURE',
     'GET_BOOKS_BY_AUTHOR','GET_BOOKS_BY_AUTHOR_SUCCESS','GET_BOOKS_BY_AUTHOR_FAILURE',
     'GET_AUTHORS','GET_AUTHORS_SUCCESS','GET_AUTHORS_FAILURE',
+    'RESET_AUTHOR_FILTER'
 ]
 const propertyModel = {
         configurable: false,
@@ -39,9 +40,9 @@ Object.defineProperties(keys, {
  * @property {string} LIST_BOOKS
  * @property {string} LIST_BOOKS_SUCCESS
  * @property {string} LIST_BOOKS_FAILURE
- * @property {string} SEARCH_BOOK
- * @property {string} SEARCH_BOOK_SUCCESS
- * @property {string} SEARCH_BOOK_FAILURE
+ * @property {string} SEARCH_BOOKS
+ * @property {string} SEARCH_BOOKS_SUCCESS
+ * @property {string} SEARCH_BOOKS_FAILURE
  * @property {string} GET_BOOK
  * @property {string} GET_BOOK_SUCCESS
  * @property {string} GET_BOOK_FAILURE
@@ -74,6 +75,7 @@ Object.defineProperties(keys, {
  * @property {string} GET_AUTHORS_SUCCESS
  * @property {string} GET_AUTHORS_FAILURE
  * 
+ * @property {string} RESET_AUTHOR_FILTER
  * 
  * 
  * @return {ActionKey}

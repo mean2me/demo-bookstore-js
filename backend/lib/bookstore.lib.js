@@ -8,16 +8,17 @@ const searchBooks = async (filter) => (await Books.findAll({
             [Op.or]: [
                 {
                     author: {
-                        [Op.like]: `%${filter}%`
+                        [Op.like]: filter ?`%${filter}%` : '%%'
                     }
                 },
                 {
                     title: {
-                        [Op.like]: `%${filter}%`
+                        [Op.like]: filter ?`%${filter}%` : '%%'
                     }
                 },
             ]
-        }
+        },
+        order:[['title','ASC']]
     }))
 
 const getBookByTitle = async (title) => await Books.findOne({

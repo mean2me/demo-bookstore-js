@@ -15,17 +15,20 @@ const initialState = {
 export default (state = initialState, action) => {
 
     switch(action.type) {
+        case keys.RESET_AUTHOR_FILTER:
+            state.author = ""
+            break
         case keys.GET_BOOKS_BY_AUTHOR:
             state.author = action.payload?.author ?? ''
             break;
         case keys.GET_AUTHORS_SUCCESS:
             state.authors = action.payload?.data ?? []
             break
-        case keys.SEARCH_BOOK:
+        case keys.SEARCH_BOOKS:
             state.filter = action.payload?.filter
             break
         case keys.LIST_BOOKS_SUCCESS:
-        case keys.SEARCH_BOOK_SUCCESS:
+        case keys.SEARCH_BOOKS_SUCCESS:
         case keys.GET_BOOKS_BY_AUTHOR_SUCCESS:
             state.books = action.payload?.data
             break
@@ -39,7 +42,7 @@ export default (state = initialState, action) => {
         case keys.GET_AUTHORS_FAILURE:
         case keys.GET_INCOME_FAILURE:
         case keys.LIST_BOOKS_FAILURE:
-        case keys.SEARCH_BOOK_FAILURE:
+        case keys.SEARCH_BOOKS_FAILURE:
         case keys.SELL_BOOK_FAILURE:
         case keys.ADD_BOOK_FAILURE:
         case keys.UPDATE_BOOK_FAILURE:

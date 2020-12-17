@@ -7,9 +7,7 @@ import { jsonCall } from './gateway'
 
 export const listBooks = async () => await jsonCall('/book/get/list', 'GET')
 
-export const searchBooks = async (filter) => await jsonCall('/book/search', 'GET', {
-    filter
-})
+export const searchBooks = async (filter) => await jsonCall(`/book/search${filter ? '?filter=' + encodeURIComponent(filter) : ''}`, 'GET')
 
 export const getBookByTitle = async (title) => await jsonCall(`/book/get/title/${encodeURIComponent(title)}`, 'GET')
 

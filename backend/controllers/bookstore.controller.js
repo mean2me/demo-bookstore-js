@@ -77,8 +77,9 @@ const getAuthors = async (req, res) => {
 }
 
 const getBooksByAuthor = async (req, res) => {
-    const { author } = req.query
-    return await lib.getBooksByAuthor(author)
+    const { author } = req.params
+    const books = await lib.getBooksByAuthor(author)
+    return books
 }
 
 module.exports = {

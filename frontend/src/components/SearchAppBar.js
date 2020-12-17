@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import UIContext from '../context/UIContext'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,8 +6,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import FilterList from '@material-ui/icons/FilterList'
+import ExitToApp from '@material-ui/icons/ExitToApp'
+import { useDispatch } from 'react-redux'
+import { logout } from '../lib/redux/actions/auth.actions'
+import { searchBooks, resetAuthorFilter } from '../lib/redux/actions/bookstore.actions'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,6 +74,37 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
   const uiCtx = useContext(UIContext)
+  const dispatch = useDispatch()
+  const [search, setSearch] = useState('')
+
+  const handleLogoutClick = () => {
+    dispatch(logout())
+  }
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleResetSearch = (e) => {
+    dispatch(resetAuthorFilter())
+  }
+
+  useEffect(() => {
+
+    let tid
+    if(search && search.length >= 3) {
+      tid = setTimeout(() => {
+        dispatch(searchBooks(search))
+      }, 500)
+    } else {
+      tid = setTimeout(() => {
+        dispatch(searchBooks(''))
+      }, 500)
+    }
+    
+    return () => {
+      clearInterval(tid)
+    }
+  }, [search]);
 
   return (
     <div className={classes.root}>
@@ -82,7 +117,7 @@ export default function SearchAppBar() {
             aria-label="open drawer"
             onClick={() => uiCtx.toggleDrawer()}
           >
-            <MenuIcon />
+            <FilterList />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Demo Book Store
@@ -98,8 +133,17 @@ export default function SearchAppBar() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={handleSearchChange}
+              onKeyDown={handleResetSearch}
             />
           </div>
+          <IconButton
+            onClick={() => handleLogoutClick()}
+            color="inherit"
+            aria-label="Logout"
+          >
+            <ExitToApp />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>

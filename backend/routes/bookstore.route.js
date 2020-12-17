@@ -43,6 +43,13 @@ module.exports = function (app) {
     ],
     controllerHandler(controller.addBook)
   )
+  app.get(
+    '/api/book/search',
+    [
+      authJwt.verifyToken
+    ],
+    controllerHandler(controller.searchBooks)
+  )
 
   app.put(
     '/api/book/sell/:code',

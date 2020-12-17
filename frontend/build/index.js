@@ -1328,7 +1328,7 @@ var listBooks = function listBooks() {
 
 var searchBooks = function searchBooks(filter) {
   return {
-    type: keys.SEARCH_BOOK,
+    type: keys.SEARCH_BOOKS,
     payload: {
       filter: filter
     }
@@ -1453,7 +1453,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var keys = {};
-var labels = ['AUTH_LOGIN', 'AUTH_LOGIN_SUCCESS', 'AUTH_LOGIN_FAILURE', 'AUTH_LOGOUT', 'AUTH_LOGOUT_SUCCESS', 'AUTH_LOGOUT_FAILURE', 'LIST_BOOKS', 'LIST_BOOK_SUCCESS', 'LIST_BOOK_FAILURE', 'SEARCH_BOOK', 'SEARCH_BOOK_SUCCESS', 'SEARCH_BOOK_FAILURE', 'GET_BOOK', 'GET_BOOK_SUCCESS', 'GET_BOOK_FAILURE', 'SELL_BOOK', 'SELL_BOOK_SUCCESS', 'SELL_BOOK_FAILURE', 'ADD_BOOK', 'ADD_BOOK_SUCCESS', 'ADD_BOOK_FAILURE', 'UPDATE_BOOK', 'UPDATE_BOOK_SUCCESS', 'UPDATE_BOOK_FAILURE', 'GET_INCOME', 'GET_INCOME_SUCCESS', 'GET_INCOME_FAILURE', 'GET_BOOK_BY_TITLE', 'GET_BOOK_BY_TITLE_SUCCESS', 'GET_BOOK_BY_TITLE_FAILURE', 'GET_BOOK_BY_CODE', 'GET_BOOK_BY_CODE_SUCCESS', 'GET_BOOK_BY_CODE_FAILURE', 'GET_BOOKS_BY_AUTHOR', 'GET_BOOKS_BY_AUTHOR_SUCCESS', 'GET_BOOKS_BY_AUTHOR_FAILURE', 'GET_AUTHORS', 'GET_AUTHORS_SUCCESS', 'GET_AUTHORS_FAILURE'];
+var labels = ['AUTH_LOGIN', 'AUTH_LOGIN_SUCCESS', 'AUTH_LOGIN_FAILURE', 'AUTH_LOGOUT', 'AUTH_LOGOUT_SUCCESS', 'AUTH_LOGOUT_FAILURE', 'LIST_BOOKS', 'LIST_BOOK_SUCCESS', 'LIST_BOOK_FAILURE', 'SEARCH_BOOKS', 'SEARCH_BOOKS_SUCCESS', 'SEARCH_BOOKS_FAILURE', 'GET_BOOK', 'GET_BOOK_SUCCESS', 'GET_BOOK_FAILURE', 'SELL_BOOK', 'SELL_BOOK_SUCCESS', 'SELL_BOOK_FAILURE', 'ADD_BOOK', 'ADD_BOOK_SUCCESS', 'ADD_BOOK_FAILURE', 'UPDATE_BOOK', 'UPDATE_BOOK_SUCCESS', 'UPDATE_BOOK_FAILURE', 'GET_INCOME', 'GET_INCOME_SUCCESS', 'GET_INCOME_FAILURE', 'GET_BOOK_BY_TITLE', 'GET_BOOK_BY_TITLE_SUCCESS', 'GET_BOOK_BY_TITLE_FAILURE', 'GET_BOOK_BY_CODE', 'GET_BOOK_BY_CODE_SUCCESS', 'GET_BOOK_BY_CODE_FAILURE', 'GET_BOOKS_BY_AUTHOR', 'GET_BOOKS_BY_AUTHOR_SUCCESS', 'GET_BOOKS_BY_AUTHOR_FAILURE', 'GET_AUTHORS', 'GET_AUTHORS_SUCCESS', 'GET_AUTHORS_FAILURE'];
 var propertyModel = {
   configurable: false,
   enumerable: true,
@@ -1477,9 +1477,9 @@ Object.defineProperties(keys, _objectSpread({}, labels.map(function (label) {
  * @property {string} LIST_BOOKS
  * @property {string} LIST_BOOKS_SUCCESS
  * @property {string} LIST_BOOKS_FAILURE
- * @property {string} SEARCH_BOOK
- * @property {string} SEARCH_BOOK_SUCCESS
- * @property {string} SEARCH_BOOK_FAILURE
+ * @property {string} SEARCH_BOOKS
+ * @property {string} SEARCH_BOOKS_SUCCESS
+ * @property {string} SEARCH_BOOKS_FAILURE
  * @property {string} GET_BOOK
  * @property {string} GET_BOOK_SUCCESS
  * @property {string} GET_BOOK_FAILURE
@@ -1637,12 +1637,12 @@ var initialState = {
       state.authors = (_action$payload$data = (_action$payload2 = action.payload) === null || _action$payload2 === void 0 ? void 0 : _action$payload2.data) !== null && _action$payload$data !== void 0 ? _action$payload$data : [];
       break;
 
-    case keys.SEARCH_BOOK:
+    case keys.SEARCH_BOOKS:
       state.filter = (_action$payload3 = action.payload) === null || _action$payload3 === void 0 ? void 0 : _action$payload3.filter;
       break;
 
     case keys.LIST_BOOKS_SUCCESS:
-    case keys.SEARCH_BOOK_SUCCESS:
+    case keys.SEARCH_BOOKS_SUCCESS:
     case keys.GET_BOOKS_BY_AUTHOR_SUCCESS:
       state.books = (_action$payload4 = action.payload) === null || _action$payload4 === void 0 ? void 0 : _action$payload4.data;
       break;
@@ -1659,7 +1659,7 @@ var initialState = {
     case keys.GET_AUTHORS_FAILURE:
     case keys.GET_INCOME_FAILURE:
     case keys.LIST_BOOKS_FAILURE:
-    case keys.SEARCH_BOOK_FAILURE:
+    case keys.SEARCH_BOOKS_FAILURE:
     case keys.SELL_BOOK_FAILURE:
     case keys.ADD_BOOK_FAILURE:
     case keys.UPDATE_BOOK_FAILURE:
@@ -1923,7 +1923,7 @@ function searchBooksCall(action) {
 
           _context6.next = 8;
           return (0,redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__.put)({
-            type: actions.SEARCH_BOOK_SUCCESS,
+            type: actions.SEARCH_BOOKS_SUCCESS,
             payload: resp
           });
 
@@ -1934,7 +1934,7 @@ function searchBooksCall(action) {
         case 10:
           _context6.next = 12;
           return (0,redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__.put)({
-            type: actions.SEARCH_BOOK_FAILURE,
+            type: actions.SEARCH_BOOKS_FAILURE,
             payload: resp
           });
 
@@ -2323,13 +2323,13 @@ function watchBookStore() {
       switch (_context15.prev = _context15.next) {
         case 0:
           _context15.next = 2;
-          return (0,redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__.takeEvery)([actions.LIST_BOOKS, actions.SEARCH_BOOK, actions.GET_BOOK, actions.GET_INCOME, actions.ADD_BOOK, actions.UPDATE_BOOK, actions.SELL_BOOK], /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(action) {
+          return (0,redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__.takeEvery)([actions.LIST_BOOKS, actions.SEARCH_BOOKS, actions.GET_BOOK, actions.GET_INCOME, actions.ADD_BOOK, actions.UPDATE_BOOK, actions.SELL_BOOK], /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(action) {
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context14) {
               while (1) {
                 switch (_context14.prev = _context14.next) {
                   case 0:
                     _context14.t0 = action.type;
-                    _context14.next = _context14.t0 === actions.LIST_BOOKS ? 3 : _context14.t0 === actions.SEARCH_BOOK ? 6 : _context14.t0 === actions.GET_BOOK ? 9 : _context14.t0 === actions.GET_INCOME ? 12 : _context14.t0 === actions.ADD_BOOK ? 15 : _context14.t0 === actions.UPDATE_BOOK ? 18 : _context14.t0 === actions.SELL_BOOK ? 21 : 24;
+                    _context14.next = _context14.t0 === actions.LIST_BOOKS ? 3 : _context14.t0 === actions.SEARCH_BOOKS ? 6 : _context14.t0 === actions.GET_BOOK ? 9 : _context14.t0 === actions.GET_INCOME ? 12 : _context14.t0 === actions.ADD_BOOK ? 15 : _context14.t0 === actions.UPDATE_BOOK ? 18 : _context14.t0 === actions.SELL_BOOK ? 21 : 24;
                     break;
 
                   case 3:
