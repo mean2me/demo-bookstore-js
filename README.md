@@ -33,3 +33,31 @@ This project has been developed using:
 -   Chai v.4
 -   JWT authentication
 -   CSRF token management
+
+## Setup and run
+
+### Backend
+
+The first required step is to setup the backend.
+
+1. from the root folder, type `cd backend`.
+2. install all node dependencies: `npm install`
+3. create a **.env** file:
+
+```
+NODE_ENV=development
+APP_BASE_URL=http://localhost:3000
+AUTH_SECRET_KEY=secret
+USERNAME=admin
+PASSWORD=admin
+```
+
+4. setup the Sqlilte database:
+
+```
+npm run init-model
+
+npm run db-migrate
+
+npm run db-seed-all
+```
