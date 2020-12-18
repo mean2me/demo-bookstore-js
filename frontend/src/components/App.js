@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import lightBlue from '@material-ui/core/colors/lightBlue'
 import grey from '@material-ui/core/colors/grey'
@@ -8,8 +7,8 @@ import grey from '@material-ui/core/colors/grey'
 import store from '../lib/redux/store'
 import UIContext from '../context/UIContext'
 
-import Routes from '../Routes'
 import ErrorBoundary from './ErrorBoundary'
+import HomePage from './HomePage'
 
 const App = () => {
     const theme = useMemo(
@@ -53,9 +52,7 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <ErrorBoundary>
                     <UIContext.Provider value={uiState}>
-                        <Router>
-                            <Routes />
-                        </Router>
+                        <HomePage />
                     </UIContext.Provider>
                 </ErrorBoundary>
             </ThemeProvider>

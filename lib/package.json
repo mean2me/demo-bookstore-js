@@ -11,5 +11,8 @@
     "url": "https://github.com/mean2me/demo-bookstore-js.git/lib"
   },
   "author": "Emanuele Colonnelli",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
 }
