@@ -73,7 +73,7 @@ drwxr-xr-x   12 emanuele.colonnelli  staff     384 Dec 18 01:15 ..
 -rw-r--r--    1 emanuele.colonnelli  staff    1497 Dec 17 07:35 app.js
 drwxr-xr-x    3 emanuele.colonnelli  staff      96 Dec 15 23:06 config
 drwxr-xr-x    4 emanuele.colonnelli  staff     128 Dec 16 22:39 controllers
-**-rw-r--r--    1 emanuele.colonnelli  staff  159744 Dec 17 18:51 database.sqlite3**
+-rw-r--r--    1 emanuele.colonnelli  staff  159744 Dec 17 18:51 database.sqlite3   <==== HERE
 -rw-r--r--    1 emanuele.colonnelli  staff    1477 Dec 16 11:47 db-seeder.js
 drwxr-xr-x    4 emanuele.colonnelli  staff     128 Dec 17 18:31 lib
 drwxr-xr-x    5 emanuele.colonnelli  staff     160 Dec 16 14:53 middlewares
@@ -87,7 +87,7 @@ drwxr-xr-x    3 emanuele.colonnelli  staff      96 Dec 16 11:13 seeders
 drwxr-xr-x    3 emanuele.colonnelli  staff      96 Dec 16 14:55 tests
 ```
 
-6. run tests and check that all of them pass... the should! :)
+6. run tests and check that all of them pass... they should! :)
 
 ```
 npm run test
@@ -115,3 +115,13 @@ npm run test
 ```
 
 Just type `npm run debug`, then start debugger from VSCode and pick the process from the dropdown.
+
+### Frontend
+
+Let's move to frontend.
+
+1. Frome the root folder, type `cd frontend`
+2. Execute `npm install`
+3. Execute `npm run start`
+4. Application will run under **http://localhost:8080**
+5. Authentication is actually fake, it's hard coded in the backend, anyway a real CSRF token and a JWT code are created and used to authenticate API requests.
