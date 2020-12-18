@@ -121,10 +121,17 @@ Just type `npm run debug`, then start debugger from VSCode and pick the process 
 Let's move to frontend.
 
 1. Frome the root folder, type `cd frontend`
-2. Execute `npm install`
-3. Execute `npm run start`
-4. Application will run under **http://localhost:8080**
-5. Authentication is actually fake, it's hard coded in the backend, anyway a real CSRF token and a JWT code are created and used to authenticate API requests.
+2. Create a **.env** file:
+
+```
+BASE_URL=http://localhost:3000
+API_PATH=/api
+```
+
+3. Execute `npm install`
+4. Execute `npm run start`
+5. Application will run under **http://localhost:8080**
+6. Authentication is actually fake, it's hard coded in the backend, anyway a real CSRF token and a JWT code are created and used to authenticate API requests.
 
 ### Local NPM package: custom-winston-module
 
