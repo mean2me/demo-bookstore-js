@@ -27,4 +27,16 @@ module.exports = {
   optimization: {
     splitChunks: { chunks: "all" }
   },
+  resolve: {
+      fallback: {
+        // util: require.resolve("util/"),
+        // buffer: require.resolve("buffer/"),
+        // os: require.resolve("os-browserify/browser"),
+        // https: require.resolve("https-browserify"),
+        // http: require.resolve("stream-http"),
+        // zlib: require.resolve("browserify-zlib"),
+        // path: require.resolve("path-browserify"),
+        // assert: require.resolve("assert/")
+      }
+  }
 };

@@ -12,7 +12,6 @@ import ExitToApp from '@material-ui/icons/ExitToApp'
 import { useDispatch } from 'react-redux'
 import { logout } from '../lib/redux/actions/auth.actions'
 import { searchBooks, resetAuthorFilter } from '../lib/redux/actions/bookstore.actions'
-import { sayHello } from 'demo-bookstore-lib'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,7 +102,6 @@ export default function SearchAppBar() {
     }
     
     return () => {
-      sayHello()
       clearInterval(tid)
     }
   }, [search]);

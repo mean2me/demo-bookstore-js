@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const { csrfMiddleware } = require('./middlewares/csrfMiddleware')
 const dotenv = require("dotenv")
+const Logger = require('custom-winston-logger').logger
 dotenv.config()
 
 if (['production', 'development'].indexOf(process.env.NODE_ENV) === -1) {
@@ -11,7 +12,8 @@ if (['production', 'development'].indexOf(process.env.NODE_ENV) === -1) {
   process.exit()
 }
 const logRequestStart = (req, res, next) => {
-  console.info(`${req.method} ${req.originalUrl}`)
+  Logger.info(`${req.method} ${req.originalUrl}`)
+  Logger.warn(`Testing custom-winston-module: is it yellow?`)
   next()
 }
 
@@ -57,5 +59,5 @@ require('./routes/auth.route')(app)
 require('./routes/bookstore.route')(app)
 
 app.listen(3000, '0.0.0.0', () => {
-    console.log(`Server is running on port ${3000}.`)
+    Logger.info(`Server is running on port ${3000}.`)
 })

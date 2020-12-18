@@ -37,6 +37,7 @@
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.0",
-    "strip-bom-stream": "^4.0.0"
+    "strip-bom-stream": "^4.0.0",
+    "custom-winston-logger": "file:../lib/custom-winston-logger-1.0.5.tgz"
   }
 }

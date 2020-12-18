@@ -1,11 +1,9 @@
 {
-  "name": "demo-bookstore-lib",
-  "version": "1.0.0",
-  "description": "Local npm dependency for demo bookstore app",
+  "name": "custom-winston-logger",
+  "version": "1.0.5",
+  "description": "Logger presets based on Winston Logger for Demo Book Store app",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/mean2me/demo-bookstore-js.git/lib"
@@ -13,6 +11,6 @@
   "author": "Emanuele Colonnelli",
   "license": "ISC",
   "dependencies": {
-    "moment": "^2.29.1"
+    "winston": "^3.3.3"
   }
 }
