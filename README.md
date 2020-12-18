@@ -54,6 +54,8 @@ PASSWORD=admin
 
 4. setup the Sqlite database:
 
+Data will be imported from **classics.csv** file, located at root folder. It contains a list of famous books and authors. 
+
 ```
 npm run init-model
 
