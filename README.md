@@ -125,3 +125,8 @@ Let's move to frontend.
 3. Execute `npm run start`
 4. Application will run under **http://localhost:8080**
 5. Authentication is actually fake, it's hard coded in the backend, anyway a real CSRF token and a JWT code are created and used to authenticate API requests.
+
+### Local NPM package: custom-winston-module
+
+In the lib folder there is a very simple node module, that has been packed and imported as a local npm dependency
+in the backend. It simply uses Winston logger to provide better and colorful log messages.
