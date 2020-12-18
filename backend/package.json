@@ -2,7 +2,7 @@
   "name": "demo-bookstore-backend",
   "version": "1.0.0",
   "description": "Simple Node.js backend app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "debug": "node --inspect-brk app.js",
     "test": "./node_modules/.bin/dotenv mocha ./tests",
@@ -10,7 +10,8 @@
     "init-model": "./node_modules/.bin/sequelize model:generate --force --name Books --attributes author:string,title:string,code:string,quantity:integer",
     "db-migrate": "./node_modules/.bin/sequelize db:migrate up",
     "db-seed-create": "./node_modules/.bin/sequelize seed:generate --name seed-books",
-    "db-seed-all": "node ./db-seeder.js"
+    "db-seed-all": "node ./db-seeder.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
